@@ -1,0 +1,42 @@
+\documentclass[a4paper, 12pt]{colle}
+\eleve{Mampouya}
+\titre{Colle Maths Q15-S1-1}
+\begin{document}
+\maketitle
+\exo
+Une urne contient initialement une boule noire et une boule blanche. On tire une boule dans l'urne et on répète le processus suivant : tant qu'on n'a pas tiré une boule blanche, on remet la boule noire dans l'urne, plus une autre boule noire. On note $X$ la variable aléatoire qui compte le nombre d'essais nécessaires pour tirer une boule blanche.
+\begin{enumerate}
+	\item Calculer $p(X=1)$, $p(X=2)$ et $p(X=3)$.
+	\item Montrer que $p(X=k)=\dfrac{1}{k(k+1)}$.
+	\item La variable $X$ possède-t-elle une espérance ?
+\end{enumerate}
+\corr
+\begin{enumerate}
+	\item Il y a une chance sur 2 de tirer la boule blanche du premier coup, donc $p(X=1)=\frac{1}{2}$.\\
+	      Pour tirer la boule blanche au deuxième coup, il faut avoir tiré une boule noire d'abord, donc $p(X=2)=\frac{1}{2}\times\frac{1}{3}$.\\
+	      De même On obtient $p(X=3)=\frac{1}{2}\times\frac{2}{3}\frac{1}{4}$.
+	\item En généralisant on obtient que $p(X=k)=\frac{1}{2}\times\frac{2}{3}\times\frac{3}{4}\times\frac{k-1}{k}\times\frac{1}{k+1}=\frac{1}{k(k+1)}$.
+	\item $E(X)$, si elle existe, est la limite quand $n\to+\infty$ de $\sum_{k=1}^{n}\dfrac{k}{k(k+1)}$, or cette série diverge donc $X$ n'a pas d'espérance.
+\end{enumerate}
+
+\exo
+Guy est très distrait : quand il s'arrête pour prendre de l'essence, il y a une chance sur dix pour qu'il reparte sans sa passagère, descendue pour visiter les lieux.
+Soit X la variable aléatoire égale au nombre d'étapes que Guy a parcouru en compagnie de sa passagère, avant de repartir sans elle.
+\begin{enumerate}[\bfseries 1.]
+	\item Établir la loi de probabilité de X.
+	\item En moyenne, au bout de combien d'étapes oublie-t-il sa passagère ?
+	\item Quel est le nombre maximum d'étapes que peut comporter le voyage pour qu'il y ait plus d'une chance sur deux que la passagère arrive à destination avec Guy ?
+\end{enumerate}
+\corr
+\begin{enumerate}[\bfseries 1.]
+	\item $X\hookrightarrow\mathcal{G}\left(\dfrac{1}{10}\right)$,
+	      c'est à dire que pour tout $k\in\N^*$, $p(X=k)=\dfrac{1}{10}\left(\dfrac{9}{10}\right)^{k-1}$.
+	\item D'après le cours, $E(X)=10$ : en moyenne, au bout de 10 étapes, il oublie sa passagère.
+	\item Guy n'oublie pas sa passagère si et seulement si $X>n$, donc on cherche le plus grand $n\in\N^*$ tel que $$p(X>n) \geqslant \dfrac{1}{2}$$
+	      Or $\displaystyle p(X>n)=\sum_{k=n}^{+\infty}\dfrac{1}{10}\left(\dfrac{9}{10}\right)^{k-1}=\dfrac{1}{10}\left(\dfrac{9}{10}\right)^{n-1}\sum_{k=0}^{+\infty}\left(\dfrac{9}{10}\right)^k=\left(\dfrac{9}{10}\right)^{n-1}$ donc on doit résoudre
+	      $$\left(\dfrac{9}{10}\right)^{n-1}\geqslant \dfrac{1}{2}$$
+	      Ce qui équivaut à $(n-1)\ln\left(\dfrac{9}{10}\right)\geqslant -\ln 2$
+	      Et donc $n \leqslant \dfrac{\ln 2}{\ln 10 - \ln 9}$.\\
+	      Ce nombre vaut environ 6,57 à $10^{-2}$ près donc la valeur cherchée est 6 : si le trajet comporte moins de 7 étapes, alors il y a plus d'une chance sur deux que Guy arrive à destination avec sa passagère.
+\end{enumerate}
+\end{document}
